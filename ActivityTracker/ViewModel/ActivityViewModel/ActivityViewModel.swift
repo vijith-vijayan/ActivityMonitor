@@ -6,32 +6,52 @@
 //  Copyright © 2019 Vijith. All rights reserved.
 //
 
-import Foundation
+import RealmSwift
+import CoreMotion
 
-public struct ActivityViewModel {
+protocol MotionDetect {
+    func walkingBegan()
+    func walkingEnd()
+}
+
+public class ActivityViewModel {
     
-    private let activity: Activity
+    private let activity = Activity()
+    private var motionActivityManager: CMMotionActivityManager!
+    private var timer = Timer()
+    
+    var motionDelegate: MotionDetect?
     
     
-    /// Initializer
+    
+   
+    /// Fetch Walking data from Realm DB
     ///
-    /// - Parameter activity: Activity of the user
-    public init(activity: Activity){
-        self.activity = activity
+    /// - Returns: Array of walking data
+    func processWalkData<T>() -> [T] {
+        let realm = try! Realm()
+        let walkData = realm.objects(Activity.self).arrayValue(ofType: T.self) as [T]
+        return walkData
     }
     
-    /// Distance
-    public var distance: Double {
-        return activity.distance
+    func startMonitoring() {
+        
+        detectMotion()
     }
     
-    /// Average speed
-    public var averageSpeed: Double {
-        return activity.averageSpeed
-    }
-    
-    /// Steps
-    public var steps: Int {
-        return activity.steps
+    @objc func detectMotion()  {
+        
+        var isWalking: Bool = false
+        var isStationary: Bool = false
+        motionActivityManager = CMMotionActivityManager()
+        motionActivityManager.startActivityUpdates(to: OperationQueue.main) { (activity) in
+            isWalking = activity?.walking ?? false
+            isStationary = activity?.stationary ?? false
+            if isWalking {
+                self.motionDelegate?.walkingBegan()
+            } else if isStationary {
+                self.motionDelegate?.walkingEnd()
+            }
+        }
     }
 }
