@@ -21,6 +21,12 @@
 		672535E1224A04A7007B41EA /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 672535E0224A04A7007B41EA /* BaseViewController.swift */; };
 		672535E4224A0C1B007B41EA /* ActivityViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 672535E3224A0C1B007B41EA /* ActivityViewModel.swift */; };
 		672535E8224A2B43007B41EA /* Locations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 672535E7224A2B43007B41EA /* Locations.swift */; };
+		678ACC97224C9E3C00CC9B6A /* ActivityHistory.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 678ACC96224C9E3C00CC9B6A /* ActivityHistory.storyboard */; };
+		678ACC9A224C9F0900CC9B6A /* ActivityHistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 678ACC99224C9F0900CC9B6A /* ActivityHistoryViewController.swift */; };
+		678ACC9D224CCC9200CC9B6A /* ActivityHistoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 678ACC9C224CCC9200CC9B6A /* ActivityHistoryCell.swift */; };
+		678ACCA0224CCD0E00CC9B6A /* ActivityHistoryCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 678ACC9F224CCD0E00CC9B6A /* ActivityHistoryCellViewModel.swift */; };
+		678ACCA3224CCD2C00CC9B6A /* ActivityHistoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 678ACCA2224CCD2C00CC9B6A /* ActivityHistoryViewModel.swift */; };
+		678ACCA6224CF9EA00CC9B6A /* TabelView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 678ACCA5224CF9EA00CC9B6A /* TabelView+Extension.swift */; };
 		A09C3C4CB90D9A4C908AFFED /* Pods_ActivityTrackerTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F83640CC62A8942481D131E /* Pods_ActivityTrackerTests.framework */; };
 		B61825DE3B41E3F7EC3CAFC1 /* Pods_ActivityTracker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DF5ECD45B3843D8DAACCA02E /* Pods_ActivityTracker.framework */; };
 /* End PBXBuildFile section */
@@ -65,6 +71,12 @@
 		672535E0224A04A7007B41EA /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		672535E3224A0C1B007B41EA /* ActivityViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityViewModel.swift; sourceTree = "<group>"; };
 		672535E7224A2B43007B41EA /* Locations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Locations.swift; sourceTree = "<group>"; };
+		678ACC96224C9E3C00CC9B6A /* ActivityHistory.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ActivityHistory.storyboard; sourceTree = "<group>"; };
+		678ACC99224C9F0900CC9B6A /* ActivityHistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityHistoryViewController.swift; sourceTree = "<group>"; };
+		678ACC9C224CCC9200CC9B6A /* ActivityHistoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityHistoryCell.swift; sourceTree = "<group>"; };
+		678ACC9F224CCD0E00CC9B6A /* ActivityHistoryCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityHistoryCellViewModel.swift; sourceTree = "<group>"; };
+		678ACCA2224CCD2C00CC9B6A /* ActivityHistoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityHistoryViewModel.swift; sourceTree = "<group>"; };
+		678ACCA5224CF9EA00CC9B6A /* TabelView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TabelView+Extension.swift"; sourceTree = "<group>"; };
 		6F83640CC62A8942481D131E /* Pods_ActivityTrackerTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ActivityTrackerTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		896F998C9F12519BD0CADCDF /* Pods_ActivityTrackerUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ActivityTrackerUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		94FA282FB95B3952BC52CF81 /* Pods-ActivityTrackerTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ActivityTrackerTests.debug.xcconfig"; path = "Target Support Files/Pods-ActivityTrackerTests/Pods-ActivityTrackerTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -127,6 +139,7 @@
 		6720FD6A224B46E5003B3E7B /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				678ACCA4224CF9CF00CC9B6A /* TableView */,
 				6720FD6D224B4A38003B3E7B /* Results */,
 			);
 			path = Extensions;
@@ -214,6 +227,8 @@
 		672535D32249FCA4007B41EA /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				678ACCA1224CCD1500CC9B6A /* ActivityHistoryViewModel */,
+				678ACC9E224CCCF100CC9B6A /* ActivityHistoryCellViewModel */,
 				672535E2224A0BE7007B41EA /* ActivityViewModel */,
 			);
 			path = ViewModel;
@@ -222,7 +237,7 @@
 		672535D42249FCAF007B41EA /* View */ = {
 			isa = PBXGroup;
 			children = (
-				672535D92249FD2E007B41EA /* LaunchScreen */,
+				678ACC95224C9D9100CC9B6A /* ActivityHistory */,
 				672535D82249FD27007B41EA /* Activity */,
 			);
 			path = View;
@@ -239,6 +254,7 @@
 		672535D62249FCC6007B41EA /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				678ACC98224C9EDD00CC9B6A /* ActivityHistory */,
 				672535DA2249FD47007B41EA /* Activity */,
 				672535DF224A0482007B41EA /* BaseClass */,
 			);
@@ -258,6 +274,7 @@
 			isa = PBXGroup;
 			children = (
 				672535A42249F800007B41EA /* Activity.storyboard */,
+				672535D92249FD2E007B41EA /* LaunchScreen */,
 			);
 			path = Activity;
 			sourceTree = "<group>";
@@ -317,6 +334,55 @@
 				672535E7224A2B43007B41EA /* Locations.swift */,
 			);
 			path = Locaction;
+			sourceTree = "<group>";
+		};
+		678ACC95224C9D9100CC9B6A /* ActivityHistory */ = {
+			isa = PBXGroup;
+			children = (
+				678ACC96224C9E3C00CC9B6A /* ActivityHistory.storyboard */,
+			);
+			path = ActivityHistory;
+			sourceTree = "<group>";
+		};
+		678ACC98224C9EDD00CC9B6A /* ActivityHistory */ = {
+			isa = PBXGroup;
+			children = (
+				678ACC9B224CCC7800CC9B6A /* ActivityHistoryCell */,
+				678ACC99224C9F0900CC9B6A /* ActivityHistoryViewController.swift */,
+			);
+			path = ActivityHistory;
+			sourceTree = "<group>";
+		};
+		678ACC9B224CCC7800CC9B6A /* ActivityHistoryCell */ = {
+			isa = PBXGroup;
+			children = (
+				678ACC9C224CCC9200CC9B6A /* ActivityHistoryCell.swift */,
+			);
+			path = ActivityHistoryCell;
+			sourceTree = "<group>";
+		};
+		678ACC9E224CCCF100CC9B6A /* ActivityHistoryCellViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				678ACC9F224CCD0E00CC9B6A /* ActivityHistoryCellViewModel.swift */,
+			);
+			path = ActivityHistoryCellViewModel;
+			sourceTree = "<group>";
+		};
+		678ACCA1224CCD1500CC9B6A /* ActivityHistoryViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				678ACCA2224CCD2C00CC9B6A /* ActivityHistoryViewModel.swift */,
+			);
+			path = ActivityHistoryViewModel;
+			sourceTree = "<group>";
+		};
+		678ACCA4224CF9CF00CC9B6A /* TableView */ = {
+			isa = PBXGroup;
+			children = (
+				678ACCA5224CF9EA00CC9B6A /* TabelView+Extension.swift */,
+			);
+			path = TableView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -432,6 +498,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				678ACC97224C9E3C00CC9B6A /* ActivityHistory.storyboard in Resources */,
 				672535AE2249F80D007B41EA /* LaunchScreen.storyboard in Resources */,
 				672535AB2249F80D007B41EA /* Assets.xcassets in Resources */,
 				672535A62249F800007B41EA /* Activity.storyboard in Resources */,
@@ -552,12 +619,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				678ACCA6224CF9EA00CC9B6A /* TabelView+Extension.swift in Sources */,
 				6720FD6C224B4711003B3E7B /* Result+Extension.swift in Sources */,
+				678ACCA0224CCD0E00CC9B6A /* ActivityHistoryCellViewModel.swift in Sources */,
+				678ACC9A224C9F0900CC9B6A /* ActivityHistoryViewController.swift in Sources */,
 				672535E1224A04A7007B41EA /* BaseViewController.swift in Sources */,
 				672535A92249F800007B41EA /* ActivityTracker.xcdatamodeld in Sources */,
 				672535A32249F800007B41EA /* ActivityViewController.swift in Sources */,
 				672535E8224A2B43007B41EA /* Locations.swift in Sources */,
 				672535DE224A0327007B41EA /* Activity.swift in Sources */,
+				678ACC9D224CCC9200CC9B6A /* ActivityHistoryCell.swift in Sources */,
+				678ACCA3224CCD2C00CC9B6A /* ActivityHistoryViewModel.swift in Sources */,
 				672535A12249F800007B41EA /* AppDelegate.swift in Sources */,
 				672535E4224A0C1B007B41EA /* ActivityViewModel.swift in Sources */,
 			);

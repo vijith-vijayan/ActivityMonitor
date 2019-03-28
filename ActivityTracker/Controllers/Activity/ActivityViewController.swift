@@ -34,21 +34,25 @@ class ActivityViewController: UIViewController {
         // Do any additional setup after loading the view, typically from a nib.
     }
     
+    /// View Did Load
+    ///
+    /// - Parameter animated: Bool value with animation
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
         manager.delegate = self
         activityViewModel.motionDelegate = self
-        activityViewModel.startMonitoring()
         manager.requestWhenInUseAuthorization()
     }
 
+    /// Start walking
     public func startWalking() {
         walking()
         location.removeAll(keepingCapacity: false)
         manager.startUpdatingLocation()
     }
     
+    /// Walking
     @objc private func walking() {
         
         seconds += 1
@@ -66,21 +70,24 @@ class ActivityViewController: UIViewController {
         
     }
     
+    /// Stop walking
     private func stopWalking() {
-        stopTimer()
+        stopLocationUpdate()
+        saveWalk()
         seconds = 0.0
         distance = 0.0
     }
     
-    private func stopTimer() {
+    /// Stop upadting location
+    private func stopLocationUpdate() {
         manager.stopUpdatingLocation()
     }
     
     /// Save Walking Data
     private func saveWalk() {
         
-        activity.averageSpeed = self.instantPace
-        activity.distance = self.distance
+        activity.averageSpeed = distance/(seconds * 60)
+        activity.distance = distance
         
         if activity.save() {
             print("Saved Successfully")
@@ -88,7 +95,24 @@ class ActivityViewController: UIViewController {
             print("Could not save the walk")
         }
     }
-
+    
+    /// Start Monitor walking button action
+    ///
+    /// - Parameter sender: Instance of any type, that can be a class or reference type
+    @IBAction func startAction(_ sender: Any) {
+        activityViewModel.startMonitoring()
+    }
+    
+    /// Stop monitor walking
+    ///
+    /// - Parameter sender: Instance of any type, that can be a class or reference type
+    @IBAction func stopAction(_ sender: Any) {
+        activityViewModel.stopMonitoring()
+        stopWalking()
+    }
+    @IBAction func segueAction(_ sender: Any) {
+    }
+    
 }
 
 extension ActivityViewController: CLLocationManagerDelegate {

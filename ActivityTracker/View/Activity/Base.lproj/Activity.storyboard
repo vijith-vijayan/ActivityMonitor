@@ -30,13 +30,59 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="Feh-u0-Hw4">
+                                <rect key="frame" x="0.0" y="567" width="375" height="100"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kva-gl-1cN">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="47.5"/>
+                                        <color key="backgroundColor" red="0.25020953745049723" green="0.70111696787148592" blue="0.03459620455755235" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="17"/>
+                                        <state key="normal" title="START">
+                                            <color key="titleColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="startAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="6Fq-5I-R7q"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FRi-k7-zsb">
+                                        <rect key="frame" x="0.0" y="52.5" width="375" height="47.5"/>
+                                        <color key="backgroundColor" red="0.70111696787148592" green="0.23213154861885646" blue="0.088464719838327779" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="17"/>
+                                        <state key="normal" title="STOP">
+                                            <color key="titleColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="stopAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="b1r-gi-UcJ"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="gaf-d6-mhe"/>
+                                </constraints>
+                            </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lUY-qy-mpj">
+                                <rect key="frame" x="166" y="419.5" width="43" height="43"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="43" id="FTO-T8-Lft"/>
+                                    <constraint firstAttribute="width" constant="43" id="PTG-Ou-Isj"/>
+                                </constraints>
+                                <state key="normal" image="right-arrow"/>
+                                <connections>
+                                    <segue destination="V3S-T2-NYu" kind="show" id="7Em-YH-MRR"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="vfr-Ls-R3f" firstAttribute="top" secondItem="5ed-3f-itk" secondAttribute="bottom" constant="15" id="1Z8-wl-r9G"/>
                             <constraint firstItem="5ed-3f-itk" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="1q2-7u-eF2"/>
+                            <constraint firstItem="Feh-u0-Hw4" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="4TO-jg-fZh"/>
                             <constraint firstItem="vfr-Ls-R3f" firstAttribute="leading" secondItem="5ed-3f-itk" secondAttribute="leading" id="RWf-zZ-ket"/>
                             <constraint firstItem="vfr-Ls-R3f" firstAttribute="trailing" secondItem="5ed-3f-itk" secondAttribute="trailing" id="RdT-us-SJK"/>
+                            <constraint firstItem="lUY-qy-mpj" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="S5s-rs-jbb"/>
+                            <constraint firstItem="lUY-qy-mpj" firstAttribute="top" secondItem="vfr-Ls-R3f" secondAttribute="bottom" constant="30" id="fV7-Y5-8R1"/>
+                            <constraint firstItem="Feh-u0-Hw4" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="p42-Ca-2RV"/>
+                            <constraint firstItem="Feh-u0-Hw4" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="s5N-gE-tgw"/>
                             <constraint firstItem="5ed-3f-itk" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="uuL-t7-QNI"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -48,7 +94,18 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="252" y="134"/>
+            <point key="canvasLocation" x="252" y="133.5832083958021"/>
+        </scene>
+        <!--ActivityHistory-->
+        <scene sceneID="y8b-8D-O4D">
+            <objects>
+                <viewControllerPlaceholder storyboardName="ActivityHistory" id="V3S-T2-NYu" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cOc-wT-AI8" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="860" y="133"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="right-arrow" width="43.065422058105469" height="43.065422058105469"/>
+    </resources>
 </document>

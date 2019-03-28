@@ -21,9 +21,6 @@ public class ActivityViewModel {
     private var timer = Timer()
     
     var motionDelegate: MotionDetect?
-    
-    
-    
    
     /// Fetch Walking data from Realm DB
     ///
@@ -35,10 +32,14 @@ public class ActivityViewModel {
     }
     
     func startMonitoring() {
-        
         detectMotion()
     }
     
+    func stopMonitoring() {
+        motionActivityManager.stopActivityUpdates()
+    }
+    
+    /// Detect phone motion
     @objc func detectMotion()  {
         
         var isWalking: Bool = false
