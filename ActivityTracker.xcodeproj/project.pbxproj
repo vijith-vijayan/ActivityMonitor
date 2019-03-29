@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		439FFDF8E02DCA00CFFB9380 /* Pods_ActivityTrackerUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 896F998C9F12519BD0CADCDF /* Pods_ActivityTrackerUITests.framework */; };
 		6720FD6C224B4711003B3E7B /* Result+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6720FD6B224B4711003B3E7B /* Result+Extension.swift */; };
+		67218F5F224E1BFF005186E6 /* ActivityFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67218F5E224E1BFF005186E6 /* ActivityFormatter.swift */; };
+		67218F62224E2134005186E6 /* Unit+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67218F61224E2134005186E6 /* Unit+Extension.swift */; };
+		67218F64224E2159005186E6 /* ConverterUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67218F63224E2159005186E6 /* ConverterUtility.swift */; };
 		672535A12249F800007B41EA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 672535A02249F800007B41EA /* AppDelegate.swift */; };
 		672535A32249F800007B41EA /* ActivityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 672535A22249F800007B41EA /* ActivityViewController.swift */; };
 		672535A62249F800007B41EA /* Activity.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 672535A42249F800007B41EA /* Activity.storyboard */; };
@@ -53,6 +56,9 @@
 		27281D25D134E65969C7B66B /* Pods-ActivityTrackerTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ActivityTrackerTests.release.xcconfig"; path = "Target Support Files/Pods-ActivityTrackerTests/Pods-ActivityTrackerTests.release.xcconfig"; sourceTree = "<group>"; };
 		4F986EE224F1572DB30D164A /* Pods-ActivityTracker.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ActivityTracker.debug.xcconfig"; path = "Target Support Files/Pods-ActivityTracker/Pods-ActivityTracker.debug.xcconfig"; sourceTree = "<group>"; };
 		6720FD6B224B4711003B3E7B /* Result+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Result+Extension.swift"; sourceTree = "<group>"; };
+		67218F5E224E1BFF005186E6 /* ActivityFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityFormatter.swift; sourceTree = "<group>"; };
+		67218F61224E2134005186E6 /* Unit+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Unit+Extension.swift"; sourceTree = "<group>"; };
+		67218F63224E2159005186E6 /* ConverterUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConverterUtility.swift; sourceTree = "<group>"; };
 		6725359D2249F800007B41EA /* ActivityTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ActivityTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		672535A02249F800007B41EA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		672535A22249F800007B41EA /* ActivityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityViewController.swift; sourceTree = "<group>"; };
@@ -139,6 +145,7 @@
 		6720FD6A224B46E5003B3E7B /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				67218F60224E2122005186E6 /* Unit */,
 				678ACCA4224CF9CF00CC9B6A /* TableView */,
 				6720FD6D224B4A38003B3E7B /* Results */,
 			);
@@ -151,6 +158,14 @@
 				6720FD6B224B4711003B3E7B /* Result+Extension.swift */,
 			);
 			path = Results;
+			sourceTree = "<group>";
+		};
+		67218F60224E2122005186E6 /* Unit */ = {
+			isa = PBXGroup;
+			children = (
+				67218F61224E2134005186E6 /* Unit+Extension.swift */,
+			);
+			path = Unit;
 			sourceTree = "<group>";
 		};
 		672535942249F800007B41EA = {
@@ -265,7 +280,7 @@
 			isa = PBXGroup;
 			children = (
 				6720FD6A224B46E5003B3E7B /* Extensions */,
-				672535E5224A2B17007B41EA /* SubClass */,
+				672535E5224A2B17007B41EA /* Class */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -320,12 +335,14 @@
 			path = ActivityViewModel;
 			sourceTree = "<group>";
 		};
-		672535E5224A2B17007B41EA /* SubClass */ = {
+		672535E5224A2B17007B41EA /* Class */ = {
 			isa = PBXGroup;
 			children = (
 				672535E6224A2B1F007B41EA /* Locaction */,
+				67218F5E224E1BFF005186E6 /* ActivityFormatter.swift */,
+				67218F63224E2159005186E6 /* ConverterUtility.swift */,
 			);
-			path = SubClass;
+			path = Class;
 			sourceTree = "<group>";
 		};
 		672535E6224A2B1F007B41EA /* Locaction */ = {
@@ -629,7 +646,10 @@
 				672535E8224A2B43007B41EA /* Locations.swift in Sources */,
 				672535DE224A0327007B41EA /* Activity.swift in Sources */,
 				678ACC9D224CCC9200CC9B6A /* ActivityHistoryCell.swift in Sources */,
+				67218F62224E2134005186E6 /* Unit+Extension.swift in Sources */,
 				678ACCA3224CCD2C00CC9B6A /* ActivityHistoryViewModel.swift in Sources */,
+				67218F5F224E1BFF005186E6 /* ActivityFormatter.swift in Sources */,
+				67218F64224E2159005186E6 /* ConverterUtility.swift in Sources */,
 				672535A12249F800007B41EA /* AppDelegate.swift in Sources */,
 				672535E4224A0C1B007B41EA /* ActivityViewModel.swift in Sources */,
 			);

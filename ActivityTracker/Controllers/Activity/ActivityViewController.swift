@@ -13,13 +13,13 @@ import HealthKit
 class ActivityViewController: UIViewController {
     
     private var instantPace: Double = 0.0
-    private var seconds: Double = 0.0
-    private var distance: Double = 0.0
+    private var seconds: Int = 0
+    private var distance = Measurement(value: 0, unit: UnitLength.meters)
     
     private let manager = Locations.locationManager
     private let activity = Activity()
     
-    lazy var location: [CLLocation] = []
+    lazy var locationList: [CLLocation] = []
     lazy var timer = Timer()
     
     lazy var activityViewModel: ActivityViewModel = {
@@ -41,41 +41,51 @@ class ActivityViewController: UIViewController {
         super.viewWillAppear(animated)
         
         manager.delegate = self
-        activityViewModel.motionDelegate = self
         manager.requestWhenInUseAuthorization()
+        timer.invalidate()
     }
 
     /// Start walking
     public func startWalking() {
+        locationList.removeAll(keepingCapacity: false)
         walking()
-        location.removeAll(keepingCapacity: false)
-        manager.startUpdatingLocation()
     }
     
     /// Walking
     @objc private func walking() {
         
-        seconds += 1
-        let distanceCovered = HKQuantity(unit: HKUnit.meter(), doubleValue: distance)
-        let paceUnit = HKUnit.second().unitDivided(by: HKUnit.meter())
-        let liveSpeed = HKQuantity(unit: paceUnit, doubleValue: seconds / distance)
-        print("Distance : \(distance)")
-        print("Seconds: \(seconds)")
-        print(liveSpeed.description)
-        print(distanceCovered.description)
-        DispatchQueue.main.async {
-            self.speedLabel.text = liveSpeed.description
-            self.distanceLabel.text = distanceCovered.description
+        seconds = 0
+        distance = Measurement(value: 0, unit: .meters)
+        updateUI()
+        timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { _ in
+            self.eachSecond()
         }
+        manager.startUpdatingLocation()
+    }
+    
+    /// Update UI
+    func updateUI()  {
         
+        let distance = ActivityFormater.distance(self.distance)
+        //let time = ActivityFormater.time(Int(seconds))
+        let pace = ActivityFormater.pace(distance: self.distance,
+                                         seconds: self.seconds,
+                                         outputUnit: UnitSpeed.minutesPerMile)
+        distanceLabel.text = "Distance: \(distance)"
+        speedLabel.text = "Speed: \(pace)"
+    }
+    
+    /// Timer seconds
+    func eachSecond() {
+        seconds += 1
+        updateUI()
     }
     
     /// Stop walking
     private func stopWalking() {
+        timer.invalidate()
         stopLocationUpdate()
         saveWalk()
-        seconds = 0.0
-        distance = 0.0
     }
     
     /// Stop upadting location
@@ -86,9 +96,10 @@ class ActivityViewController: UIViewController {
     /// Save Walking Data
     private func saveWalk() {
         
-        activity.averageSpeed = distance/(seconds * 60)
-        activity.distance = distance
-        
+        activity.averageSpeed = (self.distance.value/Double(seconds))
+        activity.distance = self.distance.value
+        activity.duration = self.seconds
+        activity.timestamp = Date()
         if activity.save() {
             print("Saved Successfully")
         } else {
@@ -100,17 +111,24 @@ class ActivityViewController: UIViewController {
     ///
     /// - Parameter sender: Instance of any type, that can be a class or reference type
     @IBAction func startAction(_ sender: Any) {
-        activityViewModel.startMonitoring()
+        //activityViewModel.startMonitoring()
+        startWalking()
     }
     
     /// Stop monitor walking
     ///
     /// - Parameter sender: Instance of any type, that can be a class or reference type
     @IBAction func stopAction(_ sender: Any) {
-        activityViewModel.stopMonitoring()
+        //activityViewModel.stopMonitoring()
         stopWalking()
     }
-    @IBAction func segueAction(_ sender: Any) {
+    
+    
+    /// Unwind segue
+    ///
+    /// - Parameter segue: Storyboard Segue
+    @IBAction func unwindToActivityView(_ segue: UIStoryboardSegue) {
+        
     }
     
 }
@@ -125,32 +143,14 @@ extension ActivityViewController: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager,
                          didUpdateLocations locations: [CLLocation]) {
         
-        for location in locations {
-            
-                //update distance
-                if self.location.count > 0 {
-                    distance += location.distance(from: self.location.last!)
-                    var coords = [CLLocationCoordinate2D]()
-                    coords.append(self.location.last!.coordinate)
-                    coords.append(location.coordinate)
-                    
-                    instantPace = location.distance(from: self.location.last!)/(location.timestamp.timeIntervalSince(self.location.last!.timestamp))
-                }
-                //save location
-                self.location.append(location)
+        for newLocation in locations {
+            let howRecent = newLocation.timestamp.timeIntervalSinceNow
+            guard newLocation.horizontalAccuracy < 20 && abs(howRecent) < 10 else { continue }
+            if let lastLocation = locationList.last {
+                let delta = newLocation.distance(from: lastLocation)
+                distance = distance + Measurement(value: delta, unit: UnitLength.meters)
             }
+            locationList.append(newLocation)
         }
-}
-
-extension ActivityViewController: MotionDetect {
-    
-    func walkingEnd() {
-        stopWalking()
     }
-    
-    func walkingBegan() {
-        startWalking()
-    }
-    
-    
 }

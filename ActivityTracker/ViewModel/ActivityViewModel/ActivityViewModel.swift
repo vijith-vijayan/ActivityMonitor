@@ -7,20 +7,10 @@
 //
 
 import RealmSwift
-import CoreMotion
-
-protocol MotionDetect {
-    func walkingBegan()
-    func walkingEnd()
-}
 
 public class ActivityViewModel {
     
     private let activity = Activity()
-    private var motionActivityManager: CMMotionActivityManager!
-    private var timer = Timer()
-    
-    var motionDelegate: MotionDetect?
    
     /// Fetch Walking data from Realm DB
     ///
@@ -29,30 +19,5 @@ public class ActivityViewModel {
         let realm = try! Realm()
         let walkData = realm.objects(Activity.self).arrayValue(ofType: T.self) as [T]
         return walkData
-    }
-    
-    func startMonitoring() {
-        detectMotion()
-    }
-    
-    func stopMonitoring() {
-        motionActivityManager.stopActivityUpdates()
-    }
-    
-    /// Detect phone motion
-    @objc func detectMotion()  {
-        
-        var isWalking: Bool = false
-        var isStationary: Bool = false
-        motionActivityManager = CMMotionActivityManager()
-        motionActivityManager.startActivityUpdates(to: OperationQueue.main) { (activity) in
-            isWalking = activity?.walking ?? false
-            isStationary = activity?.stationary ?? false
-            if isWalking {
-                self.motionDelegate?.walkingBegan()
-            } else if isStationary {
-                self.motionDelegate?.walkingEnd()
-            }
-        }
     }
 }

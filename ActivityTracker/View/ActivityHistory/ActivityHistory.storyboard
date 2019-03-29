@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="JVA-Xo-2SC">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="sZ9-Pe-xn2">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -35,32 +35,32 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0.0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZTz-C1-rqJ">
-                                                    <rect key="frame" x="66" y="11" width="289" height="26.5"/>
-                                                    <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="30"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0.0 km" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ngU-5k-aGo">
-                                                    <rect key="frame" x="66" y="46.5" width="289" height="23.5"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="23.5" id="mJU-LJ-yJn"/>
-                                                    </constraints>
+                                                    <rect key="frame" x="66" y="11" width="289" height="31.5"/>
                                                     <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="20"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="hiker" translatesAutoresizingMaskIntoConstraints="NO" id="6V7-J2-go5">
-                                                    <rect key="frame" x="31" y="12" width="25" height="25"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0.0 km" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ngU-5k-aGo">
+                                                    <rect key="frame" x="66" y="52.5" width="289" height="23.5"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="23.5" id="mJU-LJ-yJn"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="16"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="speed" translatesAutoresizingMaskIntoConstraints="NO" id="6V7-J2-go5">
+                                                    <rect key="frame" x="31" y="14.5" width="25" height="25"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="25" id="355-jP-VpE"/>
                                                         <constraint firstAttribute="width" constant="25" id="7fp-OV-jec"/>
                                                     </constraints>
                                                 </imageView>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="distance" translatesAutoresizingMaskIntoConstraints="NO" id="pcx-QF-5wc">
-                                                    <rect key="frame" x="35" y="51" width="15" height="21"/>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="binoculars" translatesAutoresizingMaskIntoConstraints="NO" id="pcx-QF-5wc">
+                                                    <rect key="frame" x="31" y="52" width="25" height="25"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="15" id="cR2-nW-kmg"/>
-                                                        <constraint firstAttribute="height" constant="21" id="fdf-03-McH"/>
+                                                        <constraint firstAttribute="width" constant="25" id="cR2-nW-kmg"/>
+                                                        <constraint firstAttribute="height" constant="25" id="fdf-03-McH"/>
                                                     </constraints>
                                                 </imageView>
                                             </subviews>
@@ -68,14 +68,14 @@
                                                 <constraint firstItem="6V7-J2-go5" firstAttribute="leading" secondItem="Q8k-0z-jHy" secondAttribute="leadingMargin" constant="16" id="1KP-6W-Pfp"/>
                                                 <constraint firstItem="ZTz-C1-rqJ" firstAttribute="top" secondItem="Q8k-0z-jHy" secondAttribute="topMargin" id="GBF-B0-kg0"/>
                                                 <constraint firstItem="ngU-5k-aGo" firstAttribute="trailing" secondItem="ZTz-C1-rqJ" secondAttribute="trailing" id="RgD-d8-zAG"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="ngU-5k-aGo" secondAttribute="bottom" constant="6" id="Xgq-wj-fnj"/>
-                                                <constraint firstItem="pcx-QF-5wc" firstAttribute="leading" secondItem="Q8k-0z-jHy" secondAttribute="leadingMargin" constant="20" id="bZT-79-A9s"/>
+                                                <constraint firstItem="pcx-QF-5wc" firstAttribute="centerY" secondItem="ngU-5k-aGo" secondAttribute="centerY" id="XF9-Au-hIp"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="ngU-5k-aGo" secondAttribute="bottom" id="Xgq-wj-fnj"/>
+                                                <constraint firstItem="pcx-QF-5wc" firstAttribute="leading" secondItem="Q8k-0z-jHy" secondAttribute="leadingMargin" constant="16" id="bZT-79-A9s"/>
                                                 <constraint firstAttribute="trailing" secondItem="ZTz-C1-rqJ" secondAttribute="trailing" constant="20" id="cA4-HM-jfn"/>
-                                                <constraint firstItem="pcx-QF-5wc" firstAttribute="top" secondItem="6V7-J2-go5" secondAttribute="bottom" constant="14" id="krs-UR-6ys"/>
                                                 <constraint firstItem="ZTz-C1-rqJ" firstAttribute="leading" secondItem="6V7-J2-go5" secondAttribute="trailing" constant="10" id="n07-kM-7ly"/>
                                                 <constraint firstItem="6V7-J2-go5" firstAttribute="centerY" secondItem="ZTz-C1-rqJ" secondAttribute="centerY" id="nE1-vG-NpD"/>
                                                 <constraint firstItem="ngU-5k-aGo" firstAttribute="leading" secondItem="ZTz-C1-rqJ" secondAttribute="leading" id="rGF-bf-j9h"/>
-                                                <constraint firstItem="ngU-5k-aGo" firstAttribute="top" secondItem="ZTz-C1-rqJ" secondAttribute="bottom" constant="9" id="uh8-pQ-jg9"/>
+                                                <constraint firstItem="ngU-5k-aGo" firstAttribute="top" secondItem="ZTz-C1-rqJ" secondAttribute="bottom" constant="10" id="uh8-pQ-jg9"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
@@ -99,17 +99,38 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="JCH-ai-R53"/>
                     </view>
+                    <navigationItem key="navigationItem" id="aYR-ts-IyV"/>
                     <connections>
                         <outlet property="activityHistoryTabel" destination="xuO-dl-YpC" id="FMx-nk-MV7"/>
+                        <segue destination="TpY-U1-ah4" kind="unwind" identifier="unwindSegue" unwindAction="unwindToActivityView:" id="Zq8-nS-MoE"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xBv-Ap-gKK" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="TpY-U1-ah4" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="200.80000000000001" y="102.99850074962519"/>
+            <point key="canvasLocation" x="1140" y="102.99850074962519"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Sw5-2O-Et2">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="sZ9-Pe-xn2" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="BWX-Ti-r6J">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="JVA-Xo-2SC" kind="relationship" relationship="rootViewController" id="Q3M-yE-cSS"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="oVa-K5-udT" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="431" y="103"/>
         </scene>
     </scenes>
     <resources>
-        <image name="distance" width="460.79998779296875" height="460.79998779296875"/>
-        <image name="hiker" width="418.90908813476562" height="418.90908813476562"/>
+        <image name="binoculars" width="384" height="384"/>
+        <image name="speed" width="384" height="384"/>
     </resources>
 </document>

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ActivityHistoryViewController: UIViewController {
+class ActivityHistoryViewController: BaseViewController {
 
     @IBOutlet weak var activityHistoryTabel: UITableView!
     
@@ -19,8 +19,9 @@ class ActivityHistoryViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         initVM()
+        navigationBar(imageName: "back.png", direction: .left)
     }
     
     private func initVM() {
@@ -56,8 +57,8 @@ extension ActivityHistoryViewController: UITableViewDelegate, UITableViewDataSou
         
         let cellVM = viewModel.getCellViewModel( at: indexPath )
         
-        cell.distanceLabel.text = "\(cellVM.distance)"
-        cell.avgSpeedLabel.text = "\(cellVM.avgSpeed)"
+        cell.distanceLabel.text = "Distance: \(cellVM.distance.rounded()) m"
+        cell.avgSpeedLabel.text = "Avarage Speed: \(cellVM.avgSpeed.rounded())"
         return cell
     }
 }

@@ -12,8 +12,9 @@ public class Activity: Object {
     
     /// Public variables
     @objc dynamic var distance: Double = 0.0
-    @objc dynamic var steps: Int = 0
     @objc dynamic var averageSpeed: Double = 0.0
+    @objc dynamic var timestamp: Date = Date()
+    @objc dynamic var duration: Int = 0
     
     /// Save Data
     ///
